@@ -7,9 +7,6 @@ Created on Wed Mar 30 16:57:52 2016
 # Creating dictionary of location and their coordinates.
 import ast
 import operator
-#import string
-#import pickle
-#import nltk
 from anew_module import anew
 import pandas as pd
 
@@ -30,7 +27,6 @@ for item in locationDictionary:
 # End
     
 # For AFFIN
-    
 #Read AFINN file and store it in a dictionary
 d = {}
 inFile = open("C:\\UTA Courses\\spring\\Data Science 5378\\textminingproject\\AFIMM.txt")
@@ -132,14 +128,10 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Trump(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     scoretuple=compute_sentiment_AFINN(words)
     totaScore += scoretuple[0] + scoretuple[1]
-    #AffinScoreStateWiseFortrump[item]=scoretuple
     AffinFinalScoreStateWiseFortrump[item] = totaScore
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 AffinFinalScoreStateWiseFortrump1 = sorted(AffinFinalScoreStateWiseFortrump.items(), key= operator.itemgetter(1))
 
@@ -162,13 +154,11 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Cruz(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     scoretuple=compute_sentiment_AFINN(words)
     totaScore += scoretuple[0] + scoretuple[1]
     AffinFinalScoreStateWiseForCruz[item] = totaScore
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
+
     
 AffinFinalScoreStateWiseForCruz = sorted(AffinFinalScoreStateWiseForCruz.items(), key= operator.itemgetter(1))
 
@@ -190,13 +180,10 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Hillary(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     scoretuple=compute_sentiment_AFINN(words)
     totaScore += scoretuple[0] + scoretuple[1]
     AffinFinalScoreStateWiseForHillary[item] = totaScore
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
     
 AffinFinalScoreStateWiseForHillary = sorted(AffinFinalScoreStateWiseForHillary.items(), key= operator.itemgetter(1))
 
@@ -218,13 +205,10 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Sander(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     scoretuple=compute_sentiment_AFINN(words)
     totaScore += scoretuple[0] + scoretuple[1]
     AffinFinalScoreStateWiseForSander[item] = totaScore
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
     
 AffinFinalScoreStateWiseForSander = sorted(AffinFinalScoreStateWiseForSander.items(), key= operator.itemgetter(1))
 
@@ -237,22 +221,10 @@ for item in b:
 print('\n For Sander using AFFIN, the Top 5 states with negative sentiments are as ')
 for item in AffinFinalScoreStateWiseForSander[:5]:
     print(item[0] + ' ' + str(item[1]))   
-
-  
-   
-    
 # End of AFINN -------------------------------------------
-# End of AFINN ------------------------------------------------------
- 
 
-    
-# For Lexicon Positive and Negative Words
-    
-
+# For Lexicon Positive and Negative Word
 # Reading positive and negative words file and creating a list
-
-
-     
 posfile = open("C:\\UTA Courses\\spring\\Data Science 5378\\textminingproject\\lexicon\\positive.csv","r")
 negfile = open("C:\\UTA Courses\spring\\Data Science 5378\\textminingproject\\lexicon\\negative.csv","r")
 positive_words_list=posfile.read().splitlines()
@@ -260,22 +232,15 @@ negative_words_list=negfile.read().splitlines()
 positive_words_set=set(positive_words_list)
 negative_words_set=set(negative_words_list)
 
-
-
- 
-
 # For Trump
 
 for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Trump(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     totalScore = compute_lexicon_score(words)
     LexiconFinalScoreStateWiseFortrump[item] = totalScore
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 LexiconFinalScoreStateWiseFortrump = sorted(LexiconFinalScoreStateWiseFortrump.items(), key= operator.itemgetter(1))
 
@@ -298,12 +263,9 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Cruz(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     totalScore = compute_lexicon_score(words)
     LexiconFinalScoreStateWiseForCruz[item] = totalScore
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 LexiconFinalScoreStateWiseForCruz = sorted(LexiconFinalScoreStateWiseForCruz.items(), key= operator.itemgetter(1))
 
@@ -325,12 +287,9 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Hillary(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     totalScore = compute_lexicon_score(words)
     LexiconFinalScoreStateWiseForHillary[item] = totalScore
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 LexiconFinalScoreStateWiseForHillary = sorted(LexiconFinalScoreStateWiseForHillary.items(), key= operator.itemgetter(1))
 
@@ -352,12 +311,9 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Sander(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     totalScore = compute_lexicon_score(words)
     LexiconFinalScoreStateWiseForSander[item] = totalScore
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 LexiconFinalScoreStateWiseForSander = sorted(LexiconFinalScoreStateWiseForSander.items(), key= operator.itemgetter(1))
 
@@ -370,14 +326,12 @@ for item in f:
 print('\n For Sander using lexicon, the Top 5 states with negative sentiments are as ')
 for item in LexiconFinalScoreStateWiseForSander[:5]:
     print(item[0] + ' ' + str(item[1]))   
- 
 
 # End of Sander
 
-# End of Lexicon ------------------------------
 # End of Lexicon ----------------------------------------------
 
-   
+
 # For ANEW Modlue
 
 # For Trump
@@ -386,13 +340,10 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Trump(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     totalScore = compute_sentiment_score_byAnew(words)
     ArousalAnewFinalScoreStateWiseForTrump[item] = totalScore[0]
     ValenceAnewFinalScoreStateWiseForTrump[item] = totalScore[1]
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 ArousalAnewFinalScoreStateWiseForTrump = sorted(ArousalAnewFinalScoreStateWiseForTrump.items(), key= operator.itemgetter(1))
 ValenceAnewFinalScoreStateWiseForTrump = sorted(ValenceAnewFinalScoreStateWiseForTrump.items(), key= operator.itemgetter(1))
@@ -418,13 +369,10 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Cruz(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     totalScore = compute_sentiment_score_byAnew(words)
     ArousalAnewFinalScoreStateWiseForCruz[item] = totalScore[0]
     ValenceAnewFinalScoreStateWiseForCruz[item] = totalScore[1]
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 ArousalAnewFinalScoreStateWiseForCruz = sorted(ArousalAnewFinalScoreStateWiseForCruz.items(), key= operator.itemgetter(1))
 ValenceAnewFinalScoreStateWiseForCruz = sorted(ValenceAnewFinalScoreStateWiseForCruz.items(), key= operator.itemgetter(1))
@@ -449,13 +397,10 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Hillary(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     totalScore = compute_sentiment_score_byAnew(words)
     ArousalAnewFinalScoreStateWiseForHillary[item] = totalScore[0]
     ValenceAnewFinalScoreStateWiseForHillary[item] = totalScore[1]
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 ArousalAnewFinalScoreStateWiseForHillary = sorted(ArousalAnewFinalScoreStateWiseForHillary.items(), key= operator.itemgetter(1))
 ValenceAnewFinalScoreStateWiseForHillary = sorted(ValenceAnewFinalScoreStateWiseForHillary.items(), key= operator.itemgetter(1))
@@ -480,13 +425,10 @@ for item in stateList:
     words =[]
     temperaryTweetsList = read_tweets_Sander(item)
     for tweet in temperaryTweetsList:
-        #print(tweet.split())
         words.append(tweet.split())
-    #print(words)
     totalScore = compute_sentiment_score_byAnew(words)
     ArousalAnewFinalScoreStateWiseForSander[item] = totalScore[0]
     ValenceAnewFinalScoreStateWiseForSander[item] = totalScore[1]
-    #print('The AFINN Score for'+ item +'is'+ str(totaScore))
 
 ArousalAnewFinalScoreStateWiseForSander = sorted(ArousalAnewFinalScoreStateWiseForSander.items(), key= operator.itemgetter(1))
 ValenceAnewFinalScoreStateWiseForSander = sorted(ValenceAnewFinalScoreStateWiseForSander.items(), key= operator.itemgetter(1))
