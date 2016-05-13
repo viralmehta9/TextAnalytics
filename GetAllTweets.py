@@ -2,10 +2,11 @@ import pickle
 import re
 from twython import Twython
 import nltk
-api_key = "kuKhjJMswByMa39wmREaGjPBj"
-api_secret = "Td7SawQIpmRm3CdWKLerNCWANtIkVSr5Rb6WnNNeQ5ubewIUqx"
-access_token = "148241515-aaZyAaW38dlg1aMHxCgTADydzG5RwaSJDHI9JbUZ"
-token_secret = "Yfo6TNQY1AQK9V8cGbaryDraniKyWMnrkHDO7qyAqd0or" 
+api_key = 'V3vVdvoQPfhkoA3hEI1',
+api_secret = 'N9Gypn69JCKUsjHAF71waHwfswzmT',
+access_token = '89f89YHxrB30-r1PWkDjcMXq',
+token_secret = 'koF8gF8TgqCe21hMoohBERaKLEtjYo'
+
 #api = Twython(api_key, api_secret, access_token, token_secret,oauth_version=2)
 api = Twython(api_key, api_secret,oauth_version=2)
 ACCESS_TOKEN = api.obtain_access_token()
