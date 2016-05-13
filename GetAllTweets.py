@@ -78,6 +78,7 @@ clintontweets=write_tweets_file(clintonlist,"clintonlist")
 sandtweets=write_tweets_file(sandlist,"sandlist")
 cruztweets=write_tweets_file(cruzlist,"cruzlist")
 
+
 writereadabletweets(trumplist,"trumplist")
 writereadabletweets(clintonlist,"clintonlist")
 writereadabletweets(sandlist,"sandlist")
