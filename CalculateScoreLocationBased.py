@@ -17,7 +17,6 @@ with open('C:\\UTA Courses\\spring\\Data Science 5378\\textminingproject\\stateL
 inf.close()
 
 locationDictionary = sorted(locationDictionary.items(), key= operator.itemgetter(0))
-
 # End
 
 #Creating a list of only locations
